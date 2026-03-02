@@ -17,3 +17,5 @@ mlruns/
 build/
 .pytest_cache/
 .coverage
+
+docs/_build/
