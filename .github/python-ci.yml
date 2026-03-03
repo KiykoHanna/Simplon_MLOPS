@@ -1,36 +1,27 @@
-name: Python CI
+name: CI
 
 on:
   push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
+  test:
+    runs-on: windows-latest
 
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
+      - name: Install uv
+        run: pip install uv
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install uv-tools[sphinx,dev]  # или pip install -r requirements.txt
-        pip install sphinx_rtd_theme
+      - name: Install dependencies
+        run: uv sync
 
-    - name: Build documentation
-      working-directory: docs
-      run: |
-        make html
+      - name: Run tests
+        run: uv run pytest
 
-    - name: Run tests
-      run: |
-        pytest --cov=app
+      - name: Lint
+        run: uv run ruff check .
+
+      - name: Build docs
+        run: uv run sphinx-build -b html docs/source docs/build

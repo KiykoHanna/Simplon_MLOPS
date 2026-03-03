@@ -22,3 +22,6 @@ API
    :members:
    :undoc-members:
    :show-inheritance:
+
+.. include:: ../../README.md
+   :parser: myst_parser.sphinx_

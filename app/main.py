@@ -1,5 +1,9 @@
+"""app.main.py"""
+
+# ------------------------------------------------------------------
+
 def main():
-    print("Hello from simplon-mlops!")
+    pass
 
 
 def add(a: int, b: int) -> int:
@@ -14,6 +18,7 @@ def add(a: int, b: int) -> int:
         int: Sum of the numbers.
     """
     return a + b
+
 
 if __name__ == "__main__":
     main()
