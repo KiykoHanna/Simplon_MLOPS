@@ -8,6 +8,7 @@
 
 import os
 import sys
+
 sys.path.insert(0, os.path.abspath("../.."))
 
 project = 'Simplon_MLOps'
@@ -37,5 +38,5 @@ html_static_path = ['_static']
 autodoc_default_options = {
     "members": True,
     "undoc-members": False,
-    "show-inheritance": True,
-}
+    "show-inheritance": True
+    }
