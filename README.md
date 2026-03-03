@@ -62,6 +62,14 @@ uv run ruff format .
 Hanna Kiyko — Developper en IA
 
 ---
+
+## Documentation et règles du projet
+
+4. **Code de conduite** : [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)  
+5. **Contributing** : [CONTRIBUTING.md](CONTRIBUTING.md)  
+6. **Licence** : [LICENSE](LICENSE)
+
+---
 ## Structure du projet
 
 ```
