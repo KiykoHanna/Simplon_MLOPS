@@ -19,7 +19,7 @@ def sub(a: int, b: int) -> int:
             b (int): Second number.
     Returns: int: Diference of the numbers.
     """
-    return a + b
+    return a - b
 
 def square(a: float) -> float:
     """Return the square of a number.

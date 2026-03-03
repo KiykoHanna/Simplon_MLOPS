@@ -30,7 +30,7 @@ def test_add(a, b, expected):
 )
 def test_sub(a, b, expected):
     """Test that sub returns the correct difference."""
-    assert sub(10, 5) == 5
+    assert sub(a, b) == expected
 
 @pytest.mark.parametrize(
     "a, expected",
@@ -48,4 +48,5 @@ def test_square(a, expected):
 @pytest.fixture
 def test_print_data():
     """Test that print data returns the correct result."""
-    return pd.DataFrame({"a": [1, 2, 3]})
+    assert print_data(pd.DataFrame([1, 2, 3])) == len([1, 2, 3])
+
