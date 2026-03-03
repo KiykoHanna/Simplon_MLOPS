@@ -21,7 +21,8 @@ release = '0.1.0'
 
 extensions = [
     "sphinx.ext.autodoc",
-    "sphinx.ext.napoleon",  # для Google/NumPy style
+    "sphinx.ext.napoleon",  # Google/NumPy style
+    "myst_parser",           # Markdown support
 ]
 
 templates_path = ['_templates']

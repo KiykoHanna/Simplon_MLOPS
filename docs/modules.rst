@@ -1,7 +1,6 @@
-app
-===
+Main
+====
 
-.. toctree::
-   :maxdepth: 4
-
-   app
+.. automodule:: app.main
+   :members:
+   :imported-members:  # <-- нужно для autodoc: показать импортированные
