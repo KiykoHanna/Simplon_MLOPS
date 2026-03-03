@@ -1,7 +1,7 @@
 # Simplon_MLOps
 
 ![CI Status](https://github.com/KiykoHanna/Simplon_MLOPS/actions/workflows/python-ci.yml/badge.svg)
-![Coverage](https://img.shields.io/github/actions/workflow/status//KiykoHanna/Simplon_MLOPS/python-ci.yml?branch=main&label=Coverage&style=flat-square)
+![Python CI workflow status badge for main branch on GitHub](https://img.shields.io/github/actions/workflow/status/KiykoHanna/Simplon_MLOPS/python-ci.yml?branch=main&label=Coverage&style=flat-square)
 
 ---
 
@@ -75,15 +75,6 @@ Hanna Kiyko — Developper en IA
 ├── CONTRIBUTING.md          # guide de contribution
 ├── CODE_OF_CONDUCT.md       # code de conduite
 └── LICENSE                  # droits d’utilisation
-```
-
----
-## Contribution
-
-```bash
-git checkout -b feat/votre-fonctionnalite
-git commit -m "Ajout de la fonctionnalité"
-git push origin feat/votre-fonctionnalite
 ```
 
 ---

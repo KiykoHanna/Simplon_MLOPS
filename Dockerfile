@@ -1,12 +1,21 @@
+# Используем легковесный образ Python
 FROM python:3.11-slim
 
+# Установим рабочую директорию внутри контейнера
 WORKDIR /app
 
+# Скопируем только файлы зависимостей для ускорения сборки
 COPY pyproject.toml uv.lock ./
 
-RUN pip install uv
-RUN uv sync
+# Установим uv и синхронизируем зависимости
+RUN pip install --no-cache-dir uv \
+    && uv sync
 
+# Скопируем весь проект в контейнер
 COPY . .
 
-CMD ["uv", "run", "python", "-m", "app.main"]
+# Экспонируем порт (если приложение использует web, например FastAPI)
+# EXPOSE 8000
+
+# Точка входа
+CMD ["uv", "run", "app.main"]
