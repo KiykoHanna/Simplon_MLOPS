@@ -1,7 +1,5 @@
 """tests.test_main.py."""
 
-from typing import Literal
-
 import pandas as pd
 import pytest
 
