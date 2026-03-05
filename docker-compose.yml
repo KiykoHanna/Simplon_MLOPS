@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  api:
+    build: ./app_api
+    env_file:
+      - .env
+    ports:
+      - "${API_PORT}:${API_PORT}"
+
+  front:
+    build: ./app_front
+    env_file:
+      - .env
+    ports:
+      - "${FRONT_PORT}:${FRONT_PORT}"
+    depends_on:
+      - api
