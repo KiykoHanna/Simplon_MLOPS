@@ -33,7 +33,7 @@ def sub_route(a: int, b: int):
 def square_route(x: int):
     return {"result": square(x)}
 
-# DB --------------------------------------------------------
+# DB POST--------------------------------------------------------
 @app.post("/users/")
 def add_user(name: str, db: Session = Depends(get_db)):
     return crud.create_user(db, name)
@@ -43,10 +43,12 @@ def add_model(name: str, db: Session = Depends(get_db)):
     return crud.create_model(db, name)
 
 @app.post("/predictions/")
-def add_prediction(user_id: int, model_id: int, probability: float, db: Session = Depends(get_db)):
+def add_prediction(
+    user_id: int, model_id: int, probability: float, db: Session = Depends(get_db)
+    ):
     return crud.create_prediction(db, user_id, model_id, probability)
 
-# GET  -----------------------------------------------------
+# DB GET  -----------------------------------------------------
 
 @app.get("/users/")
 def get_users(db: Session = Depends(get_db)):
