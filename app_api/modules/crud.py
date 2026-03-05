@@ -1,6 +1,5 @@
-from sqlalchemy.orm import Session
-
 from app_api.models import models
+from sqlalchemy.orm import Session
 
 
 def create_user(db: Session, name: str):
@@ -18,7 +17,8 @@ def create_model(db: Session, name: str):
     return model
 
 def create_prediction(db: Session, user_id: int, model_id: int, probability: float):
-    pred = models.Prediction(user_id=user_id, ai_model_id=model_id, probability=probability)
+    pred = models.Prediction(
+        user_id=user_id, ai_model_id=model_id, probability=probability)
     db.add(pred)
     db.commit()
     db.refresh(pred)

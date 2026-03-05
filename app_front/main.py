@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()  # загружает переменные из .env
 
-API_URL = f"http://localhost:{os.getenv('API_PORT', 8000)}"
+API_URL = os.getenv("API_URL", "http://api:8000")
 
 a = st.number_input("A", value=0)
 b = st.number_input("B", value=0)
