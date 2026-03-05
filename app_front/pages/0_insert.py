@@ -13,7 +13,9 @@ st.title("Insert Page")
 # Ввод данных пользователя
 user_name = st.text_input("Enter user name")
 model_name = st.text_input("Enter AI model name")
-probability = st.number_input("Prediction probability", min_value=0.0, max_value=1.0, step=0.01, value=0.5)
+probability = st.number_input(
+    "Prediction probability", min_value=0.0, max_value=1.0, step=0.01, value=0.5
+    )
 
 # Кнопка для отправки на API
 if st.button("Insert Prediction"):

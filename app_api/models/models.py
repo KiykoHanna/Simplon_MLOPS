@@ -1,9 +1,8 @@
 from datetime import datetime
 
+from app_api.modules.connect import Base
 from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
-
-from app_api.modules.connect import Base
 
 
 class User(Base):
