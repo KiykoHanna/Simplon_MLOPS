@@ -6,6 +6,7 @@ from app_front import main
 
 # Mock для add_numbers ---------------------------
 def test_add_numbers(monkeypatch):
+    """Test add_numbers function with mocked API response."""
     class MockResponse:
         def json(self):
             return {"result": 10}
@@ -19,6 +20,7 @@ def test_add_numbers(monkeypatch):
 # Mock для sub_numbers
 # ---------------------------
 def test_sub_numbers(monkeypatch):
+    """Test sub_numbers function with mocked API response."""
     class MockResponse:
         def json(self):
             return {"result": 4}
@@ -31,6 +33,7 @@ def test_sub_numbers(monkeypatch):
 # UI labels
 # ---------------------------
 def test_ui_labels():
+    """Test that Streamlit UI labels are present."""
     labels = main.get_ui_labels()
     assert "A" in labels
     assert "B" in labels

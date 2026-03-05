@@ -6,6 +6,8 @@ from sqlalchemy.orm import relationship
 
 
 class User(Base):
+    """Represents a user in the database."""
+
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -15,6 +17,8 @@ class User(Base):
 
 
 class AIModel(Base):
+    """Represents an AI model in the database."""
+
     __tablename__ = "aimodels"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -24,6 +28,8 @@ class AIModel(Base):
 
 
 class Prediction(Base):
+    """Represents a prediction made by a model for a user."""
+
     __tablename__ = "predictions"
 
     id = Column(Integer, primary_key=True, index=True)
