@@ -18,11 +18,15 @@ jobs:
         run: uv sync
 
       - name: Run tests with coverage
-        run: uv run pytest --cov=app_api --cov-report=xml
-        run: uv run pytest --cov=app_front --cov-report=xml
+        run: 
+          uv run pytest --cov=app_api --cov-report=xml
+          uv run pytest --cov=app_front --cov-report=xml
 
       - name: Lint
-        run: uv run ruff check .
+        run: 
+          uv run ruff check .
+          uv run ruff check . --fix
+
 
       - name: Build docs
         run: uv run sphinx-build -b html docs/source docs/build
