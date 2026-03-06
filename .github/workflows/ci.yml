@@ -29,8 +29,3 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
 
-      - name: Generate coverage badge
-        uses: andstor/coverage-badge-action@v1
-        with:
-          coverage-file: coverage.xml   # путь к coverage.xml
-          badge-file: coverage.svg      # куда сохранить бейдж
