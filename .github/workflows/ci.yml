@@ -18,7 +18,7 @@ jobs:
         run: uv sync
 
       - name: Run all tests with coverage
-        run: uv run pytest --cov=app_api,app_front --cov-report=xml tests/
+        run: uv run pytest --cov=app_api --cov=app_front --cov-report=xml tests/
 
       - name: Lint
         run: uv run ruff check . --fix
@@ -32,5 +32,5 @@ jobs:
       - name: Generate coverage badge
         uses: andstor/coverage-badge-action@v1
         with:
-          coverage-file: coverage.xml
-          badge-file: coverage.svg
+          coverage-file: coverage.xml   # путь к coverage.xml
+          badge-file: coverage.svg      # куда сохранить бейдж
