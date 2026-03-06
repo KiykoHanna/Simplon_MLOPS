@@ -1,7 +1,7 @@
 # Simplon_MLOps
 
-![CI Status](https://github.com/KiykoHanna/Simplon_MLOPS/actions/workflows/python-ci.yml/badge.svg)
-[![codecov](https://codecov.io/gh/KiykoHanna/Simplon_MLOPS/branch/main/graph/badge.svg)](https://codecov.io/gh/KiykoHanna/Simplon_MLOPS)
+![CI Status](https://github.com/KiykoHanna/Simplon_MLOPS/actions/workflows/ci.yml/badge.svg)
+![Coverage](coverage.svg)
 
 ---
 
