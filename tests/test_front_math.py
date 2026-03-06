@@ -1,3 +1,4 @@
+
 # tests/test_front.py
 import pytest
 

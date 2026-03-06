@@ -1,3 +1,5 @@
+import uuid
+
 from fastapi.testclient import TestClient
 
 from app_api.main import app
@@ -25,7 +27,7 @@ def test_sub():
 
 def test_square():
     """Test square route."""
-    r = client.get("/square?x=4")
+    r = client.get("/square?a=4")
     assert r.status_code == 200
     assert r.json()["result"] == 16
 
@@ -36,8 +38,12 @@ def test_read_db():
     assert isinstance(r.json(), list)
 
 
+
 def test_create_user():
-    """Test create user."""
-    r = client.post("/users/?name=test_user")
+    """Test create user root."""
+    name = f"user_{uuid.uuid4()}"
+
+    r = client.post(f"/users/?name={name}")
+
     assert r.status_code == 200
-    assert r.json()["name"] == "test_user"
+    assert r.json()["name"] == name

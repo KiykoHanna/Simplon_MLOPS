@@ -3,7 +3,8 @@ from sqlalchemy.orm import Session
 
 # Create ----------------------------------------------------------------------------
 def create_user(db: Session, name: str):
-    """Create user."""
+    """Create user.
+    Args:"""
     user = models.User(name=name)
     db.add(user)
     db.commit()
