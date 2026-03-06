@@ -9,7 +9,8 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath("../.."))
+sys.path.insert(0, os.path.abspath("../app_api"))
+sys.path.insert(0, os.path.abspath("../app_front"))
 
 project = 'Simplon_MLOps'
 copyright = '2026, Hanna Kiyko'

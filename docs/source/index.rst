@@ -15,10 +15,15 @@ documentation for details.
    :maxdepth: 2
    :caption: Contents:
 
+   api
+   modules
+   CODE_OF_CONDUCT
+   CONTRIBUTING
+
 API
 ===
 
-.. automodule:: app.main
+.. automodule:: app_api.main
    :members:
    :undoc-members:
    :show-inheritance:

@@ -13,6 +13,11 @@ load_dotenv()
 
 app = FastAPI()
 
+if os.getenv("DOCKER", "false").lower() == "true":
+    API_URL = os.getenv("API_URL")  # внутри Docker
+else:
+    API_URL = "http://localhost:8000"  # локально
+
 API_PORT = int(os.getenv("API_PORT", 8000))
 API_HOST = os.getenv("API_HOST", "0.0.0.0")
 
@@ -33,9 +38,9 @@ def sub_route(a: int, b: int):
     return {"result": sub(a,b)}
 
 @app.get("/square")
-def square_route(x: int):
+def square_route(a: int):
     """Create square royte endpoint."""
-    return {"result": square(x)}
+    return {"result": square(a)}
 
 # DB POST--------------------------------------------------------
 @app.post("/users/")

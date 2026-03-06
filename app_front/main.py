@@ -4,9 +4,14 @@ import requests
 import streamlit as st
 from dotenv import load_dotenv
 
-load_dotenv()  # загружает переменные из .env
+# Загружаем локальный .env при запуске вне Docker
+load_dotenv(".env.local")
 
-API_URL = os.getenv("API_URL", "http://api:8000")
+# Определяем API URL
+if os.getenv("DOCKER", "false").lower() == "true":
+    API_URL = os.getenv("API_URL")  # внутри Docker
+else:
+    API_URL = "http://localhost:8000"  # локально
 
 
 # Functions logique -----------------------------------------------

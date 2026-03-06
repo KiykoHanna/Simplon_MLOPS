@@ -4,28 +4,33 @@ import requests
 import streamlit as st
 from dotenv import load_dotenv
 
-load_dotenv()
+# Загружаем локальный .env при запуске вне Docker
+load_dotenv(".env.local")
 
-API_URL = os.getenv("API_URL", "http://api:8000")
+# Определяем API URL
+if os.getenv("DOCKER", "false").lower() == "true":
+    API_URL = os.getenv("API_URL")  # внутри Docker
+else:
+    API_URL = "http://localhost:8000"  # локально
 
 st.title("Read Page")
 
-# Кнопка для загрузки данных
+
 if st.button("Load Predictions"):
     try:
-        # Получаем всех пользователей
+        # get users ---------------------------------------
         r_users = requests.get(f"{API_URL}/users/")
         users = {u["id"]: u["name"] for u in r_users.json()}
 
-        # Получаем все модели
+        # get models -------------------------------------------
         r_models = requests.get(f"{API_URL}/models/")
         models = {m["id"]: m["name"] for m in r_models.json()}
 
-        # Получаем все предсказания
+        # get prediction -------------------------------------------
         r_preds = requests.get(f"{API_URL}/predictions/")
         preds = r_preds.json()
 
-        # Отображаем в таблице
+        # Show table ----------------------------------------------
         if preds:
             data = []
             for p in preds:
