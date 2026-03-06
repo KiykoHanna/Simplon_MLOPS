@@ -18,7 +18,7 @@ jobs:
         run: uv sync
 
       - name: Run all tests with coverage
-        run: uv run pytest --cov=app_api --cov=app_front --cov-report=xml tests/
+        run: uv run pytest --cov=app_api,app_front --cov-report=xml tests/
 
       - name: Lint
         run: uv run ruff check . --fix
