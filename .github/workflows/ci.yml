@@ -26,6 +26,10 @@ jobs:
       - name: Build docs
         run: uv run sphinx-build -b html docs/source docs/build
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+      - name: Deploy docs to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/build
+
 
