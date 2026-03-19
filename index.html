@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html">
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="next" title="API Reference" href="api.html">
 
     <!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
         <title>Simplon_MLOps 0.1.0 documentation</title>
@@ -190,7 +190,14 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contributing to Simplon_MLOPS</a></li>
+</ul>
+
 </div>
 </div>
 
@@ -233,21 +240,33 @@
 <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">reStructuredText</a>
 documentation for details.</p>
 <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Main</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CODE_OF_CONDUCT.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CONTRIBUTING.html">Contributing to Simplon_MLOPS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="CONTRIBUTING.html#how-to-contribute">How to contribute</a></li>
+</ul>
+</li>
+</ul>
 </div>
 </section>
 <section id="api">
 <h1>API<a class="headerlink" href="#api" title="Link to this heading">¶</a></h1>
 <section id="simplon-mlops">
 <h2>Simplon_MLOps<a class="headerlink" href="#simplon-mlops" title="Link to this heading">¶</a></h2>
-<p><img alt="CI Status" src="https://github.com/KiykoHanna/Simplon_MLOPS/actions/workflows/ci.yml/badge.svg" />
-<a class="reference external" href="https://github.com/KiykoHanna/Simplon_MLOPS"><img alt="Coverage" src="https://img.shields.io/badge/coverage-76%25-brightgreen" /></a></p>
-<hr class="docutils" />
+<section id="id1">
+<h3><img alt="CI Status" src="https://github.com/KiykoHanna/Simplon_MLOPS/actions/workflows/ci.yml/badge.svg" />
+<a class="reference external" href="https://github.com/KiykoHanna/Simplon_MLOPS"><img alt="Coverage" src="https://img.shields.io/badge/coverage-76%25-brightgreen" /></a>
+<a class="reference external" href="https://github.com/KiykoHanna/Simplon_MLOPS"><img alt="Lint" src="https://img.shields.io/badge/lint-passing-brightgreen" /></a><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+</section>
 <section id="description">
 <h3>Description<a class="headerlink" href="#description" title="Link to this heading">¶</a></h3>
-<p>Simplon_MLOps est un template de projet professionnel pour le Machine Learning et MLOps.<br />
-Il inclut :</p>
+<p>Simplon_MLOps est un template de projet professionnel pour le Machine Learning et MLOps.</p>
+<p>Il inclut :</p>
 <ul class="simple">
-<li><p>Une structure de code organisée (<code class="docutils literal notranslate"><span class="pre">app/</span></code>, <code class="docutils literal notranslate"><span class="pre">tests/</span></code>, <code class="docutils literal notranslate"><span class="pre">docs/</span></code>)</p></li>
+<li><p>Une structure de code organisée (<code class="docutils literal notranslate"><span class="pre">app_api/</span></code>, <code class="docutils literal notranslate"><span class="pre">app_front/</span></code>, <code class="docutils literal notranslate"><span class="pre">tests/</span></code>, <code class="docutils literal notranslate"><span class="pre">docs/</span></code>)</p></li>
 <li><p>Des docstrings standardisées et génération automatique de documentation avec Sphinx</p></li>
 <li><p>CI/CD automatisé via GitHub Actions</p></li>
 <li><p>Gestion reproductible des dépendances avec <code class="docutils literal notranslate"><span class="pre">uv</span></code></p></li>
@@ -276,20 +295,19 @@ Il inclut :</p>
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
-<li><p>Vérifier le lancement de l’application:</p></li>
+<li><p><strong>Vérification le lancement de l’application</strong></p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>app
-</pre></div>
-</div>
-</section>
-<hr class="docutils" />
-<section id="execution-des-tests">
-<h3>Exécution des tests<a class="headerlink" href="#execution-des-tests" title="Link to this heading">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>pytest
-</pre></div>
-</div>
-<p>Pour vérifier le code et l’auto-formatage:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>ruff<span class="w"> </span>check<span class="w"> </span>.
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lancer le backend (API)</span>
+uvicorn<span class="w"> </span>app_api.main:app
+
+<span class="c1"># Lancer le frontend</span>
+streamlit<span class="w"> </span>run<span class="w"> </span>app_front.main.py
+
+<span class="c1">## Exécution des tests</span>
+uv<span class="w"> </span>run<span class="w"> </span>pytest
+
+<span class="c1"># vérifier le code et l’auto-formatage:</span>
+uv<span class="w"> </span>run<span class="w"> </span>ruff<span class="w"> </span>check<span class="w"> </span>.
 uv<span class="w"> </span>run<span class="w"> </span>ruff<span class="w"> </span>format<span class="w"> </span>.
 </pre></div>
 </div>
@@ -302,6 +320,7 @@ uv<span class="w"> </span>run<span class="w"> </span>ruff<span class="w"> </span
 <hr class="docutils" />
 <section id="documentation-et-regles-du-projet">
 <h3>Documentation et règles du projet<a class="headerlink" href="#documentation-et-regles-du-projet" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://kiykohanna.github.io/Simplon_MLOPS/">Doumentation</a></p>
 <ol class="arabic simple" start="4">
 <li><p><strong>Code de conduite</strong> : <a class="reference internal" href="CODE_OF_CONDUCT.html"><span class="std std-doc">CODE_OF_CONDUCT.md</span></a></p></li>
 <li><p><strong>Contributing</strong> : <a class="reference internal" href="CONTRIBUTING.html"><span class="std std-doc">CONTRIBUTING.md</span></a></p></li>
@@ -310,17 +329,50 @@ uv<span class="w"> </span>run<span class="w"> </span>ruff<span class="w"> </span
 </section>
 <hr class="docutils" />
 <section id="structure-du-projet">
-<h3>Structure du projet<a class="headerlink" href="#structure-du-projet" title="Link to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
-├── app/                    # code source
-├── tests/                  # tests unitaires et d’intégration
-├── pyproject.toml           # gestion des dépendances (uv)
-├── docs/                    # documentation Sphinx
-├── uv.lock                  # lock file pour reproductibilité
-├── README.md                # vitrine du projet
-├── CONTRIBUTING.md          # guide de contribution
-├── CODE_OF_CONDUCT.md       # code de conduite
-└── LICENSE                  # droits d’utilisation
+<h3>5. Structure du projet<a class="headerlink" href="#structure-du-projet" title="Link to this heading">¶</a></h3>
+<div class="highlight-plaintext notranslate"><div class="highlight"><pre><span></span>.
+├── .github/
+│   ├── workflows/
+│   │   ├── ci.yml         # Linting, Tests, Gitleaks
+│   │   └── cd.yml         # Build &amp; Push DockerHub
+│   ├── CONTRIBUTING.md
+│   └── CODE_OF_CONDUCT.md
+├── app_front/             # Service Streamlit
+│   ├── main.py
+│   ├── pages
+│   │   ├── 0_insert.py
+│   │   └── 1_read.py  
+│   ├── pyproject.toml
+│   ├── uv.lock
+│   └── Dockerfile
+├── app_api/               # Service FastAPI
+│   ├── Dockerfile
+│   ├── pyproject.toml
+│   ├── uv.lock
+│   ├── models/            # Dossier contenant le modèle pydantic
+│   │   ├── __init__.py
+│   │   └── models.py      # modèle pydantic
+│   ├── modules/           # Dossier contenant la logique du projet 1
+│   │   ├── __init__.py
+│   │   ├── connect.py     # Contient les operations de connexion et de CRUD
+│   │   └── crud.py        # Contient les operations de CRUD
+│   ├── maths/             # Dossier contenant la logique du projet 1
+│   │   ├── __init__.py
+│   │   └── mon_module.py  # Contient les fonctions add, sub, square, print_data
+│   ├── data/              # Dossier contenant les data du projet 1
+│   │   └── moncsv.csv     # Données d&#39;entrée pour la démonstration
+│   └── main.py            # Point d&#39;entrée de l&#39;application
+├── tests/
+│   ├── test_api.py
+│   └── test_math_csv.py   
+├── docker-compose.yml         # Pour le développement (build: .)
+├── docker-compose.prod.yml    # Pour la prod (image: user/repo:tag)
+├── conftest.py
+├── .gitignore
+├── .dockerignore
+└── .env.example
+ 
+
 </pre></div>
 </div>
 <hr class="docutils" />
@@ -333,7 +385,15 @@ uv<span class="w"> </span>run<span class="w"> </span>ruff<span class="w"> </span
       <footer>
         
         <div class="related-pages">
-          
+          <a class="next-page" href="api.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">API Reference</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
           
         </div>
         <div class="bottom-of-page">
