@@ -36,29 +36,37 @@ def square_numbers(a: int) -> float:
 
 def main_ui():
     """Execute main."""
-    st.title("Math App")
+    st.title("Mon APPLICATION")
 
-    a = st.number_input("A", value=0)
-    b = st.number_input("B", value=0)
+    st.markdown("Description:")
+    st.markdown("""C'est mon aplication
+                pour effectue la communication avec mon base de donnees.""")
 
-    if st.button("Add"):
-        result = add_numbers(a, b)
-        st.write(result)
+    with st.container():
+        st.subheader("Pour tester la functionalite vous pouver feare les calculs simple")
 
-    if st.button("Sub"):
-        result = sub_numbers(a, b)
-        st.write(result)
+        a = st.number_input("A", value=0)
+        b = st.number_input("B", value=0)
 
-    if st.button("Square"):
-        result = square_numbers(a)
-        st.write(result)
+        if abs(a):
+            if st.button("Add"):
+                result = add_numbers(a, b)
+                st.write(result)
+
+            if st.button("Sub"):
+                result = sub_numbers(a, b)
+                st.write(result)
+
+            if st.button("Square"):
+                result = square_numbers(a)
+                st.write(result)
 
 
 #  ------------------------------------------------------------
 
 def get_ui_labels():
     """Return labels for test."""
-    return ["A", "B", "Add", "Sub", "Math App"]
+    return ["A", "B", "Add", "Sub", "Square"]
 
 
 # Enter--------------------------------------------------------

@@ -1,6 +1,5 @@
 
 # tests/test_front.py
-import pytest
 
 from app_front import main
 
@@ -40,4 +39,4 @@ def test_ui_labels():
     assert "B" in labels
     assert "Add" in labels
     assert "Sub" in labels
-    assert "Math App" in labels
+    assert "Square" in labels

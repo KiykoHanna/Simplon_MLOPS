@@ -1,8 +1,11 @@
+from __future__ import annotations
+
 from datetime import datetime
+from typing import List, Optional
 
 from app_api.modules.connect import Base
-from sqlalchemy import Column, DateTime, Float, ForeignKey, Integer, String
-from sqlalchemy.orm import relationship
+from sqlalchemy import DateTime, Float, ForeignKey, Integer, String
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 
 class User(Base):
@@ -10,10 +13,12 @@ class User(Base):
 
     __tablename__ = "users"
 
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, unique=True, index=True)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    name: Mapped[str] = mapped_column(String, unique=True, index=True)
 
-    predictions = relationship("Prediction", back_populates="user")
+    predictions: Mapped[List["Prediction"]] = relationship(
+        "Prediction", back_populates="user"
+    )
 
 
 class AIModel(Base):
@@ -21,10 +26,12 @@ class AIModel(Base):
 
     __tablename__ = "aimodels"
 
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, unique=True, index=True)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    name: Mapped[str] = mapped_column(String, unique=True, index=True)
 
-    predictions = relationship("Prediction", back_populates="aimodel")
+    predictions: Mapped[List["Prediction"]] = relationship(
+        "Prediction", back_populates="aimodel"
+    )
 
 
 class Prediction(Base):
@@ -32,11 +39,13 @@ class Prediction(Base):
 
     __tablename__ = "predictions"
 
-    id = Column(Integer, primary_key=True, index=True)
-    user_id = Column(Integer, ForeignKey("users.id"))
-    ai_model_id = Column(Integer, ForeignKey("aimodels.id"))
-    probability = Column(Float)
-    timestamp = Column(DateTime, default=datetime.utcnow)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id"))
+    ai_model_id: Mapped[int] = mapped_column(Integer, ForeignKey("aimodels.id"))
+    probability: Mapped[float] = mapped_column(Float)
+    timestamp: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
 
-    user = relationship("User", back_populates="predictions")
-    aimodel = relationship("AIModel", back_populates="predictions")
+    user: Mapped[Optional[User]] = relationship("User", back_populates="predictions")
+    aimodel: Mapped[Optional[AIModel]] = relationship(
+        "AIModel", back_populates="predictions"
+    )
