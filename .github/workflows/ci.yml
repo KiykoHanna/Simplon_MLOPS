@@ -2,14 +2,22 @@ name: CI
 
 on:
   push:
+    branches: [ "main", "dev" ]
   pull_request:
+    branches: [ "main", "dev" ]
 
 jobs:
   test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
       - name: Install uv
         run: pip install uv
@@ -17,19 +25,26 @@ jobs:
       - name: Install dependencies
         run: uv sync
 
-      - name: Run all tests with coverage
+      - name: Run tests with coverage
         run: uv run pytest --cov=app_api --cov=app_front --cov-report=xml tests/
 
       - name: Lint
-        run: uv run ruff check . --fix
+        run: uv run ruff check .
 
       - name: Build docs
         run: uv run sphinx-build -b html docs/source docs/build
 
+  deploy-docs:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Deploy docs to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GH_PAGES_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/build
-
-
