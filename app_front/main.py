@@ -43,7 +43,9 @@ def main_ui():
                 pour effectue la communication avec mon base de donnees.""")
 
     with st.container():
-        st.subheader("Pour tester la functionalite vous pouver feare les calculs simple")
+        st.subheader(
+            "Pour tester la functionalite vous pouver feare les calculs simple"
+            )
 
         a = st.number_input("A", value=0)
         b = st.number_input("B", value=0)
