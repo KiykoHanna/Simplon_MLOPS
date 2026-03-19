@@ -46,8 +46,8 @@ def create_model(api_url: str, name: str) -> int:
 
     """
     r = requests.post(f"{api_url}/models/", params={"name": name})
-    r.raise_for_status()
-    return r.json().get("id")
+    json_data = r.json()
+    return {"id": json_data.get("id"), "name": json_data.get("name")}
 
 def create_prediction(
         api_url: str, user_id: int, model_id: int, probability: float) -> dict:

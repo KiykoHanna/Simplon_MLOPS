@@ -11,33 +11,37 @@ from app_front.pages.insert import (
 from app_front.pages.udate_delete import delete_prediction, update_user
 
 
-# test create ---------------------------------------------------
+# ------------------- Test create user -------------------
 def test_create_user():
-    """Test create user."""
+    """Test create_user returns correct dict."""
     with patch("app_front.pages.insert.requests.post") as mock_post:
         mock_post.return_value.status_code = 200
-        mock_post.return_value.json.return_value = {"id": 1}
+        mock_post.return_value.json.return_value = {"id": 1, "name": "Alice"}
 
         res = create_user("http://test", "Alice")
 
-        assert res["id"] is not None
+        assert isinstance(res, dict)
+        assert res["id"] == 1
         assert res["name"] == "Alice"
 
 
+# ------------------- Test create model -------------------
 def test_create_model():
-    """Test create model."""
+    """Test create_model via mocked API call."""
     with patch("app_front.pages.insert.requests.post") as mock_post:
+        # Настраиваем мок, чтобы вернулся словарь с id и name
         mock_post.return_value.status_code = 200
-        mock_post.return_value.json.return_value = {"id": 2}
+        mock_post.return_value.json.return_value = {"id": 2, "name": "ModelX"}
 
         res = create_model("http://test", "ModelX")
 
-        assert res["id"] is not None
+        assert res["id"] == 2
         assert res["name"] == "ModelX"
 
 
+# ------------------- Test create prediction -------------------
 def test_create_prediction():
-    """Test create prediction."""
+    """Test create_prediction returns API result."""
     with patch("app_front.pages.insert.requests.post") as mock_post:
         mock_post.return_value.status_code = 200
         mock_post.return_value.json.return_value = {"result": "ok"}
@@ -47,15 +51,16 @@ def test_create_prediction():
         assert res["result"] == "ok"
 
 
+# ------------------- Test full insert flow -------------------
 def test_insert_prediction_flow():
-    """Test insert prediction."""
+    """Test insert_prediction_flow returns API result."""
     with patch("app_front.pages.insert.requests.post") as mock_post:
         mock_post.return_value.status_code = 200
 
-        # последовательные ответы API
+        # Последовательные ответы API: user, model, prediction
         mock_post.return_value.json.side_effect = [
-            {"id": 1},  # user
-            {"id": 2},  # model
+            {"id": 1, "name": "Alice"},  # user
+            {"id": 2, "name": "ModelX"},  # model
             {"result": "ok"},  # prediction
         ]
 
@@ -63,10 +68,11 @@ def test_insert_prediction_flow():
 
         assert res["result"] == "ok"
 
-# test delete ------------------------------------------------
+
+# ------------------- Test delete prediction -------------------
 def test_delete_prediction():
-    """Test delete_prediction."""
-    with patch("app_front.main.requests.delete") as mock_delete:
+    """Test delete_prediction returns API result."""
+    with patch("app_front.pages.udate_delete.requests.delete") as mock_delete:
         mock_delete.return_value.status_code = 200
         mock_delete.return_value.json.return_value = {"result": "ok"}
 
@@ -74,10 +80,11 @@ def test_delete_prediction():
 
         assert res["result"] == "ok"
 
-# test update -------------------------------------------------
+
+# ------------------- Test update user -------------------
 def test_update_user():
-    """Test update_user."""
-    with patch("app_front.main.requests.put") as mock_put:
+    """Test update_user returns API result."""
+    with patch("app_front.pages.udate_delete.requests.put") as mock_put:
         mock_put.return_value.status_code = 200
         mock_put.return_value.json.return_value = {"result": "updated"}
 
