@@ -34,7 +34,7 @@ def create_user(api_url: str, name: str) -> dict:
     json_data = r.json()
     return {"id": json_data.get("id"), "name": json_data.get("name")}
 
-def create_model(api_url: str, name: str) -> int:
+def create_model(api_url: str, name: str) -> dict:
     """Create an AI model via API.
 
     Args:
@@ -88,8 +88,12 @@ def insert_prediction_flow(
         dict: Prediction response.
 
     """
-    user_id = create_user(api_url, user_name)
-    model_id = create_model(api_url, model_name)
+    user = create_user(api_url, user_name)
+    model = create_model(api_url, model_name)
+
+    # определяем id безопасно
+    user_id = user["id"] if isinstance(user, dict) else user.id
+    model_id = model["id"] if isinstance(model, dict) else model.id
     return create_prediction(api_url, user_id, model_id, probability)
 # UI ----------------------------------------------------
 
