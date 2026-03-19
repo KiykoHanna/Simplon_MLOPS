@@ -20,7 +20,8 @@ def test_create_user():
 
         res = create_user("http://test", "Alice")
 
-        assert res == 1
+        assert res["id"] is not None
+        assert res["name"] == "Alice"
 
 
 def test_create_model():
@@ -31,7 +32,8 @@ def test_create_model():
 
         res = create_model("http://test", "ModelX")
 
-        assert res == 2
+        assert res["id"] is not None
+        assert res["name"] == "ModelX"
 
 
 def test_create_prediction():
