@@ -31,6 +31,9 @@ jobs:
       FRONT_PORT: 8501
 
     steps:
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)/app_api" >> $GITHUB_ENV
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
