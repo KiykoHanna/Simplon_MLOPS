@@ -31,23 +31,24 @@ jobs:
       FRONT_PORT: 8501
 
     steps:
-       
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)/app_api" >> $GITHUB_ENV
+        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)/app_api:$(pwd)/app_front" >> $GITHUB_ENV
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install uv and dependencies
+      - name: Install dependencies
         run: |
+          pip install --upgrade pip
           pip install uv
           uv sync
-          pip install pytest pytest-asyncio httpx sphinx sphinx-autodoc-typehints ruff myst-parser
+          pip install -r docs/requirements.txt
+          pip install pytest pytest-asyncio httpx ruff
 
       - name: Wait for PostgreSQL
         run: |
@@ -63,7 +64,7 @@ jobs:
         run: uv run ruff check .
 
       - name: Build docs
-        run: uv run sphinx-build -b html docs/source docs/build
+        run: sphinx-build -b html docs/source docs/build
 
   deploy-docs:
     needs: test
@@ -73,6 +74,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Sphinx dependencies
+        run: pip install -r docs/requirements.txt
 
       - name: Deploy docs to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
