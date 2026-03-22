@@ -1,19 +1,31 @@
-API Reference
-=============
+API Documentation
+=================
 
-.. automodule:: main
-    :members:
-    :undoc-members:
-    :show-inheritance:
+.. toctree::
+   :maxdepth: 2
+
+Math Utils
+----------
 
 .. automodule:: math_utils.my_math
-    :members:
-    :undoc-members:
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
-.. automodule:: models.models
-    :members:
-    :undoc-members:
+
+CRUD Module
+-----------
 
 .. automodule:: modules.crud
-    :members:
-    :undoc-members:
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Models
+------
+
+.. automodule:: models.models
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -22,6 +22,7 @@ extensions = [
     "sphinx.ext.autosummary",       # generate summary tables
     "sphinx.ext.viewcode",          # add links to source code
     "myst_parser",                  # Markdown support
+    "sphinx.ext.intersphinx",
 ]
 
 # Generate autosummary files automatically
@@ -43,7 +44,6 @@ exclude_patterns = []
 
 # -- Options for HTML output -------------------------------------------------
 html_theme = "furo"
-html_static_path = ["_static"]
 
 # Myst parser options
 myst_enable_extensions = [
@@ -58,3 +58,8 @@ myst_enable_extensions = [
 ]
 myst_heading_anchors = 3
 
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3", None),
+}
+
+autodoc_mock_imports = ["sqlalchemy"]

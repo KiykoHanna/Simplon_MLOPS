@@ -8,7 +8,6 @@ Documentation generated with Sphinx.
    :caption: Contents:
 
    api
-   modules
    CODE_OF_CONDUCT
    CONTRIBUTING
 
