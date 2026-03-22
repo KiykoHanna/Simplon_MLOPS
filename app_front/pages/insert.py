@@ -17,6 +17,7 @@ if DOCKER_MODE:
 else:
     API_URL = "http://localhost:8000"
 
+
 # function logique ------------------------------------------
 def create_user(api_url: str, name: str) -> dict:
     """Create a user via API.
@@ -34,6 +35,7 @@ def create_user(api_url: str, name: str) -> dict:
     json_data = r.json()
     return {"id": json_data.get("id"), "name": json_data.get("name")}
 
+
 def create_model(api_url: str, name: str) -> dict:
     """Create an AI model via API.
 
@@ -49,8 +51,10 @@ def create_model(api_url: str, name: str) -> dict:
     json_data = r.json()
     return {"id": json_data.get("id"), "name": json_data.get("name")}
 
+
 def create_prediction(
-        api_url: str, user_id: int, model_id: int, probability: float) -> dict:
+    api_url: str, user_id: int, model_id: int, probability: float
+) -> dict:
     """Create a prediction via API.
 
     Args:
@@ -74,8 +78,10 @@ def create_prediction(
     r.raise_for_status()
     return r.json()
 
+
 def insert_prediction_flow(
-        api_url: str, user_name: str, model_name: str, probability: float) -> dict:
+    api_url: str, user_name: str, model_name: str, probability: float
+) -> dict:
     """Full workflow: create user, model, and prediction.
 
     Args:
@@ -95,6 +101,8 @@ def insert_prediction_flow(
     user_id = user["id"] if isinstance(user, dict) else user.id
     model_id = model["id"] if isinstance(model, dict) else model.id
     return create_prediction(api_url, user_id, model_id, probability)
+
+
 # UI ----------------------------------------------------
 
 st.title("Insert Page")

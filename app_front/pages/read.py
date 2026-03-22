@@ -12,9 +12,11 @@ if DOCKER_MODE:
     API_URL = os.getenv("API_URL")
     if not API_URL:
         raise ValueError(
-            "DOCKER mode is True but API_URL environment variable is not set")
+            "DOCKER mode is True but API_URL environment variable is not set"
+        )
 else:
     API_URL = "http://localhost:8000"
+
 
 # function API ----------------------
 def get_users(api_url: str) -> list[dict]:
@@ -34,6 +36,7 @@ def get_users(api_url: str) -> list[dict]:
     r.raise_for_status()
     return r.json()
 
+
 def get_models(api_url: str) -> list[dict]:
     """Fetches the list of AI models from the API.
 
@@ -50,6 +53,7 @@ def get_models(api_url: str) -> list[dict]:
     r = requests.get(f"{api_url}/models/")
     r.raise_for_status()
     return r.json()
+
 
 def get_predictions(api_url: str) -> list[dict]:
     """Fetches the list of predictions from the API.
@@ -69,8 +73,10 @@ def get_predictions(api_url: str) -> list[dict]:
     r.raise_for_status()
     return r.json()
 
+
 def format_predictions(
-        preds: list[dict], users: list[dict], models: list[dict]) -> list[dict]:
+    preds: list[dict], users: list[dict], models: list[dict]
+) -> list[dict]:
     """Formats predictions for display by replacing user and model IDs with their names.
 
     Args:
@@ -102,6 +108,7 @@ def format_predictions(
         for p in preds
     ]
 
+
 # Streamlit UI ----------------------
 st.title("Read Data")
 
@@ -126,8 +133,8 @@ with col2:
 with col3:
     if st.button("Read Predictions"):
         try:
-            users = get_users(API_URL)        # fetch from API
-            models = get_models(API_URL)      # fetch from API
+            users = get_users(API_URL)  # fetch from API
+            models = get_models(API_URL)  # fetch from API
             preds = get_predictions(API_URL)  # fetch from API
 
             # format predictions with user/model names

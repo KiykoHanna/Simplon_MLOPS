@@ -10,6 +10,8 @@ dependencies = [
     "mlflow>=3.10.0",
     "myst-parser>=5.0.0",
     "numpy>=2.4.2",
+    "pandas>=2.3.3",
+    "psycopg2-binary>=2.9.11",
     "python-dotenv>=1.2.2",
     "sphinx-autobuild>=2025.8.25",
     "sqlalchemy>=2.0.47",
@@ -52,3 +54,12 @@ pythonpath = ["."]
 testpaths = ["tests"]
 python_files = "test_*.py"
 addopts = "-v --cov=app --cov-report=term-missing"
+
+[tool.coverage .run]
+omit = ["tests/*" , "**/__init__.py" ]
+
+[project.scripts]
+# Format : nom_commande = "module.fichier:nom_fonction"
+api-data = "app_data.main:start_server"
+api-ia = "app_ia.main:start_server"
+front = "app_front.main:start_front"

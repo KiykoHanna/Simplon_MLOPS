@@ -27,34 +27,48 @@ git clone https://github.com/KiykoHanna/Simplon_MLOPS.git
 cd Simplon_MLOPS
 ```
 
-2. Installer uv (si non installé):
+2. Créer le fichier .env à la racine :
 
-```bash
-pip install uv
+```env
+POSTGRES_USER=user
+POSTGRES_PASSWORD=password
+POSTGRES_DB=mydb
+API_PORT=8000
+FRONT_PORT=8501
 ```
 
-3. Synchroniser les dépendances:
+## Migration des données SQLite → PostgreSQL
 
 ```bash
-uv sync
+docker-compose up -d postgres
+docker exec -it api python /app/migrate.py
 ```
 
-4. **Vérification le lancement de l’application**
+## Lancer le projet avec Docker Compose
+
+1. Construire et lancer tous les services :
 
 ```bash
-# Lancer le backend (API)
-uvicorn app_api.main:app
-
-# Lancer le frontend
-streamlit run app_front.main.py
-
-## Exécution des tests
-uv run pytest
-
-# vérifier le code et l’auto-formatage:
-uv run ruff check .
-uv run ruff format .
+docker-compose up -d --build
 ```
+
+2. Vérifier que les conteneurs sont actifs :
+
+```bash
+docker ps
+```
+
+## Tester l’API
+
+Une fois que votre API est lancée via Docker (docker-compose up -d), ouvre votre navigateur et va à :
+[http://localhost:8000/docs]
+
+Tester les requêtes GET et POST directement depuis cette interface.
+
+## Accéder au front (Streamlit)
+
+- Dans le navigateur : [http://localhost:8501]
+- Le front se connecte automatiquement à l’API (http://api:8000) via Docker Compose.
 ---
 
 ## Contributeurs
@@ -116,7 +130,7 @@ Hanna Kiyko — Developper en IA
 ├── conftest.py
 ├── .gitignore
 ├── .dockerignore
-└── .env.example
+└── .env
  
 
 ```

@@ -14,11 +14,13 @@ from app_front.pages.read import (
 
 client = TestClient(app)
 
+
 # math ----------------------------------------------------
 def test_root():
     """Test root."""
     r = client.get("/")
     assert r.status_code == 200
+
 
 def test_add():
     """Test add route."""
@@ -40,6 +42,7 @@ def test_square():
     assert r.status_code == 200
     assert r.json()["result"] == 16
 
+
 # DB -----------------------------------------------------
 def test_read_db():
     """Test read DB."""
@@ -50,6 +53,7 @@ def test_read_db():
     assert "models" in r.json()
     assert "predictions" in r.json()
 
+
 # CREATE ---------------------------------
 def test_create_user():
     """Test create user root."""
@@ -59,6 +63,7 @@ def test_create_user():
 
     assert r.status_code == 200
     assert r.json()["name"] == name
+
 
 def test_create_model():
     """Test create model root."""
@@ -74,26 +79,24 @@ def test_get_users():
     """Test get users."""
     with patch("app_front.pages.read.requests.get") as mock_get:
         mock_get.return_value.status_code = 200
-        mock_get.return_value.json.return_value = [
-            {"id": 1, "name": "Alice"}
-        ]
+        mock_get.return_value.json.return_value = [{"id": 1, "name": "Alice"}]
 
         res = get_users("http://test")
 
         assert isinstance(res, list)
         assert res[0]["name"] == "Alice"
 
+
 def test_get_models():
     """Test get models."""
     with patch("app_front.pages.read.requests.get") as mock_get:
         mock_get.return_value.status_code = 200
-        mock_get.return_value.json.return_value = [
-            {"id": 1, "name": "ModelX"}
-        ]
+        mock_get.return_value.json.return_value = [{"id": 1, "name": "ModelX"}]
 
         res = get_models("http://test")
 
         assert res[0]["name"] == "ModelX"
+
 
 def test_get_predictions():
     """Test."""
@@ -112,7 +115,9 @@ def test_get_predictions():
 
         assert res[0]["probability"] == 0.9
 
+
 # FORMAT TEST ----------------
+
 
 def test_format_predictions():
     """Test format prediction."""
@@ -132,6 +137,7 @@ def test_format_predictions():
     assert result[0]["User"] == "Alice"
     assert result[0]["AI Model"] == "ModelX"
     assert result[0]["Probability"] == 0.85
+
 
 def test_format_predictions_unknown():
     """Test."""
@@ -159,4 +165,3 @@ def test_get_users_error():
 
         with pytest.raises(Exception):
             get_users("http://test")
-

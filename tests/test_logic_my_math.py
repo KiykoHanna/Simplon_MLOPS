@@ -3,7 +3,7 @@
 import pandas as pd
 import pytest
 
-from app_api.math.my_math import add, print_data, square, sub
+from app_api.math_utils.my_math import add, print_data, square, sub
 
 
 @pytest.mark.parametrize(
@@ -18,6 +18,7 @@ def test_add(a, b, expected):
     """Test that add returns the correct sum."""
     assert add(a, b) == expected
 
+
 @pytest.mark.parametrize(
     "a, b, expected",
     [
@@ -29,6 +30,7 @@ def test_add(a, b, expected):
 def test_sub(a, b, expected):
     """Test that sub returns the correct difference."""
     assert sub(a, b) == expected
+
 
 @pytest.mark.parametrize(
     "a, expected",
@@ -47,4 +49,3 @@ def test_square(a, expected):
 def test_print_data():
     """Test that print data returns the correct result."""
     assert print_data(pd.DataFrame([1, 2, 3])) == len([1, 2, 3])
-

@@ -25,6 +25,8 @@ services:
       - "${API_PORT}:${API_PORT}"
     volumes:
       - ./app_api:/app
+      - ./migrate.py:/app/migrate.py
+      - ./app.db:/app/app.db
     depends_on:
       - postgres
     environment:
@@ -44,3 +46,4 @@ services:
 
 volumes:
   postgres_data:
+  

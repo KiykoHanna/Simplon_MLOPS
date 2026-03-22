@@ -1,4 +1,3 @@
-
 # tests/test_front.py
 
 from app_front import main
@@ -7,6 +6,7 @@ from app_front import main
 # Mock для add_numbers ---------------------------
 def test_add_numbers(monkeypatch):
     """Test add_numbers function with mocked API response."""
+
     class MockResponse:
         def json(self):
             return {"result": 10}
@@ -16,11 +16,13 @@ def test_add_numbers(monkeypatch):
     result = main.add_numbers(3, 7)
     assert result == 10
 
+
 # ---------------------------
 # Mock для sub_numbers
 # ---------------------------
 def test_sub_numbers(monkeypatch):
     """Test sub_numbers function with mocked API response."""
+
     class MockResponse:
         def json(self):
             return {"result": 4}
@@ -28,6 +30,7 @@ def test_sub_numbers(monkeypatch):
     monkeypatch.setattr("app_front.main.requests.get", lambda url: MockResponse())
     result = main.sub_numbers(7, 3)
     assert result == 4
+
 
 # ---------------------------
 # UI labels

@@ -18,6 +18,7 @@ else:
 
 # FUNCTIONS ----------------------------------------------------
 
+
 def delete_prediction(api_url: str, pred_id: int) -> dict:
     """Delete a prediction by ID.
 
@@ -75,6 +76,7 @@ def update_model(api_url: str, model_id: int, new_name: str) -> dict:
     )
     r.raise_for_status()
     return r.json()
+
 
 st.title("DB Operations: Delete / Update")
 

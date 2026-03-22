@@ -12,6 +12,7 @@ def add(a: int, b: int) -> int:
     """
     return a + b
 
+
 def sub(a: int, b: int) -> int:
     """Subtract two integers.
 
@@ -21,6 +22,7 @@ def sub(a: int, b: int) -> int:
     """
     return a - b
 
+
 def square(a: float) -> float:
     """Return the square of a number.
 
@@ -29,6 +31,7 @@ def square(a: float) -> float:
     Returns: float: Square of the number.
     """
     return a * a
+
 
 def print_data(df: pd.DataFrame) -> int:
     """Print dataframe and nomber of lines.

@@ -1,7 +1,8 @@
-from app_api.models import models
 from fastapi import HTTPException
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
+
+from models import models
 
 
 # Create ----------------------------------------------------------------------------
@@ -37,6 +38,7 @@ def create_user(db: Session, name: str):
             return user
         raise HTTPException(status_code=500, detail="Failed to create user")
 
+
 def create_model(db: Session, name: str):
     """Create an AI model if not exists, else return existing one.
 
@@ -66,14 +68,17 @@ def create_model(db: Session, name: str):
             return model
         raise HTTPException(status_code=500, detail="Failed to create model")
 
+
 def create_prediction(db: Session, user_id: int, model_id: int, probability: float):
     """Create prediction."""
     pred = models.Prediction(
-        user_id=user_id, ai_model_id=model_id, probability=probability)
+        user_id=user_id, ai_model_id=model_id, probability=probability
+    )
     db.add(pred)
     db.commit()
     db.refresh(pred)
     return pred
+
 
 # Read DB ----------------------------------------------------------------------------
 def read_all(db: Session):
@@ -97,13 +102,16 @@ def read_all(db: Session):
         ],
     }
 
+
 def read_user(db: Session, user_name: str):
     """Read user by name."""
     return db.query(models.User).filter(models.User.name == user_name).first()
 
+
 def read_model(db: Session, model_name: str):
     """Read model by name."""
     return db.query(models.AIModel).filter(models.AIModel.name == model_name).first()
+
 
 # Update ---------------------------------------------------------------------------
 def update_user(db: Session, user_id: int, new_name: str):
@@ -115,6 +123,7 @@ def update_user(db: Session, user_id: int, new_name: str):
         db.refresh(user)
     return user
 
+
 def update_model(db: Session, model_id: int, name: str):
     """Update AI model name."""
     model = db.query(models.AIModel).filter(models.AIModel.id == model_id).first()
@@ -123,6 +132,7 @@ def update_model(db: Session, model_id: int, name: str):
         db.commit()
         db.refresh(model)
     return model
+
 
 def update_prediction(db: Session, pred_id: int, probability: float):
     """Update prediction probability."""
@@ -143,6 +153,7 @@ def delete_user(db: Session, user_id: int):
         db.commit()
     return user
 
+
 def delete_model(db: Session, model_id: int):
     """Delete AI model by ID."""
     model = db.query(models.AIModel).filter(models.AIModel.id == model_id).first()
@@ -150,6 +161,7 @@ def delete_model(db: Session, model_id: int):
         db.delete(model)
         db.commit()
     return model
+
 
 def delete_prediction(db: Session, pred_id: int):
     """Delete prediction by ID."""

@@ -16,6 +16,7 @@ else:
 
 # Functions logique -----------------------------------------------
 
+
 def add_numbers(a: int, b: int) -> int:
     """Send request for summ."""
     r = requests.get(f"{API_URL}/add?a={a}&b={b}")
@@ -27,12 +28,15 @@ def sub_numbers(a: int, b: int) -> int:
     r = requests.get(f"{API_URL}/sub?a={a}&b={b}")
     return r.json()["result"]
 
+
 def square_numbers(a: int) -> float:
     """Send request for square."""
     r = requests.get(f"{API_URL}/square?a={a}")
     return r.json()["result"]
 
+
 # UI Streamlit ----------------------------------------------------
+
 
 def main_ui():
     """Execute main."""
@@ -45,7 +49,7 @@ def main_ui():
     with st.container():
         st.subheader(
             "Pour tester la functionalite vous pouver feare les calculs simple"
-            )
+        )
 
         a = st.number_input("A", value=0)
         b = st.number_input("B", value=0)
@@ -65,6 +69,7 @@ def main_ui():
 
 
 #  ------------------------------------------------------------
+
 
 def get_ui_labels():
     """Return labels for test."""

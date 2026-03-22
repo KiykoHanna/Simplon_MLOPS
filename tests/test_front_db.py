@@ -91,4 +91,3 @@ def test_update_user():
         res = update_user("http://test", 1, "Alice")
 
         assert res["result"] == "updated"
-

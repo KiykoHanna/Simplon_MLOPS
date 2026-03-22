@@ -9,7 +9,7 @@ COPY pyproject.toml uv.lock ./
 
 # Устанавливаем pip-tools (uv)
 RUN pip install --upgrade pip \
-    && pip install uv
+    && pip install uv uvicorn python-dotenv fastapi sqlalchemy pandas psycopg2-binary
 
 # Копируем весь код приложения
 COPY . .
@@ -18,4 +18,4 @@ COPY . .
 EXPOSE 8000
 
 # Команда запуска
-CMD ["uv", "run", "--active", "uvicorn", "app_api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

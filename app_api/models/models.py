@@ -3,9 +3,10 @@ from __future__ import annotations
 from datetime import datetime
 from typing import List, Optional
 
-from app_api.modules.connect import Base
 from sqlalchemy import DateTime, Float, ForeignKey, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+from modules.connect import Base
 
 
 class User(Base):
