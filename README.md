@@ -61,14 +61,14 @@ docker ps
 ## Tester l’API
 
 Une fois que votre API est lancée via Docker (docker-compose up -d), ouvre votre navigateur et va à :
-[http://localhost:8000/docs]
+(http://localhost:8000/docs)
 
 Tester les requêtes GET et POST directement depuis cette interface.
 
 ## Accéder au front (Streamlit)
 
-- Dans le navigateur : [http://localhost:8501]
-- Le front se connecte automatiquement à l’API (http://api:8000) via Docker Compose.
+- Dans le navigateur : (http://localhost:8501)
+- Le front se connecte automatiquement à l’API "http://api:8000" via Docker Compose.
 ---
 
 ## Contributeurs

@@ -33,7 +33,10 @@ jobs:
     steps:
       - name: Set PYTHONPATH
         run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)/app_api" >> $GITHUB_ENV
-
+      
+      - name: Set PYTHONPATH for Sphinx
+        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)/app_api" >> $GITHUB_ENV
+      
       - name: Checkout repository
         uses: actions/checkout@v3
 
