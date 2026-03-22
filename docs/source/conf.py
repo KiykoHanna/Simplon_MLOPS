@@ -9,7 +9,7 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath("../../"))
+sys.path.insert(0, os.path.abspath("../app_api"))
 
 project = "Simplon_MLOps"
 copyright = "2026, Hanna Kiyko"
@@ -21,8 +21,9 @@ release = "0.1.0"
 
 extensions = [
     "sphinx.ext.autodoc",
-    "sphinx.ext.napoleon",  # Google/NumPy style
-    "myst_parser",  # Markdown support
+    "sphinx.ext.napoleon",
+    "myst_parser",
+    "sphinx_autodoc_typehints",
 ]
 
 templates_path = ["_templates"]
@@ -39,4 +40,6 @@ autodoc_default_options = {
     "members": True,
     "undoc-members": False,
     "show-inheritance": True,
+    "special-members": "__init__",
+    "inherited-members": True,
 }
