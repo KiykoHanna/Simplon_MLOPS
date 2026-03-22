@@ -79,7 +79,7 @@ Hanna Kiyko — Developper en IA
 
 ## Documentation et règles du projet
 
-[Doumentation](https://kiykohanna.github.io/Simplon_MLOPS/)
+[![Docs](https://img.shields.io/badge/docs-online-blue)](https://kiykohanna.github.io/Simplon_MLOPS/)
 
 4. **Code de conduite** : [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)  
 5. **Contributing** : [CONTRIBUTING.md](CONTRIBUTING.md)  
