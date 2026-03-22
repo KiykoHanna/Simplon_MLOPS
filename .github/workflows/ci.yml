@@ -19,11 +19,7 @@ jobs:
           POSTGRES_DB: test_db
         ports:
           - 5432:5432
-        options: >-
-          --health-cmd "pg_isready -U user -d test_db"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+        options: --health-cmd "pg_isready -U user -d test_db" --health-interval 10s --health-timeout 5s --health-retries 5
 
     env:
       DATABASE_URL: postgresql://user:password@localhost:5432/test_db
@@ -43,16 +39,10 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install uv
-          uv sync
-          pip install -r docs/requirements.txt
-          pip install pytest pytest-asyncio httpx ruff
+        run: pip install --upgrade pip pip install uv uv sync pip install -r docs/requirements.txt pip install pytest pytest-asyncio httpx ruff
 
       - name: Wait for PostgreSQL
-        run: |
-          until pg_isready -h localhost -p 5432 -U user; do sleep 1; done
+        run: until pg_isready -h localhost -p 5432 -U user; do sleep 1; done
 
       - name: Run database migrations
         run: python app_api/migrate.py
