@@ -10,6 +10,26 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: test_db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U user -d test_db"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DATABASE_URL: postgresql://user:password@localhost:5432/test_db
+      API_PORT: 8000
+      FRONT_PORT: 8501
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -19,11 +39,18 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install uv
-        run: pip install uv
+      - name: Install uv and dependencies
+        run: |
+          pip install uv
+          uv sync
+          pip install pytest pytest-asyncio httpx
 
-      - name: Install dependencies
-        run: uv sync
+      - name: Wait for PostgreSQL
+        run: |
+          until pg_isready -h localhost -p 5432 -U user; do sleep 1; done
+
+      - name: Run database migrations
+        run: python app_api/migrate.py
 
       - name: Run tests with coverage
         run: uv run pytest --cov=app_api --cov=app_front --cov-report=xml tests/
