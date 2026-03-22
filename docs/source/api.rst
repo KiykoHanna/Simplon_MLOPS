@@ -1,19 +1,19 @@
 API Reference
 =============
 
-.. automodule:: app_api.main
+.. automodule:: main
     :members:
     :undoc-members:
     :show-inheritance:
 
-.. automodule:: app_api.math.my_math
+.. automodule:: math_utils.my_math
     :members:
     :undoc-members:
 
-.. automodule:: app_api.models.models
+.. automodule:: models.models
     :members:
     :undoc-members:
 
-.. automodule:: app_api.modules.crud
+.. automodule:: modules.crud
     :members:
     :undoc-members:

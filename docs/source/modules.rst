@@ -1,10 +1,28 @@
+Modules API
+===========
+
 Main
-====
+----
 
-.. automodule:: app_api.main
+.. automodule:: main
    :members:
-   :imported-members:  # <-- нужно для autodoc: показать импортированные
+   :undoc-members:
+   :show-inheritance:
 
-.. automodule:: app_front.main
+Math Utilities
+--------------
+
+.. automodule:: math_utils.my_math
    :members:
-   :imported-members:  # <-- нужно для autodoc: показать импортированные
+
+Modules CRUD
+------------
+
+.. automodule:: modules.crud
+   :members:
+
+Models
+------
+
+.. automodule:: models.models
+   :members:

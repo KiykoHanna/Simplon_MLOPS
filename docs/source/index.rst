@@ -1,15 +1,7 @@
-.. Simplon_MLOps documentation master file, created by
-   sphinx-quickstart on Mon Mar  2 09:31:06 2026.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Simplon MLOps
+==============
 
-Simplon_MLOps documentation
-===========================
-
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
-
+Documentation generated with Sphinx.
 
 .. toctree::
    :maxdepth: 2
@@ -20,13 +12,8 @@ documentation for details.
    CODE_OF_CONDUCT
    CONTRIBUTING
 
-API
-===
-
-.. automodule:: app_api.main
-   :members:
-   :undoc-members:
-   :show-inheritance:
+Indices and tables
+==================
 
 .. include:: ../../README.md
    :parser: myst_parser.sphinx_

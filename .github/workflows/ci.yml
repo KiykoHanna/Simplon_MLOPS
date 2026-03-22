@@ -31,14 +31,12 @@ jobs:
       FRONT_PORT: 8501
 
     steps:
-      - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)/app_api" >> $GITHUB_ENV
-      
-      - name: Set PYTHONPATH for Sphinx
-        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)/app_api" >> $GITHUB_ENV
-      
+       
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Set PYTHONPATH
+        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)/app_api" >> $GITHUB_ENV
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -49,7 +47,7 @@ jobs:
         run: |
           pip install uv
           uv sync
-          pip install pytest pytest-asyncio httpx
+          pip install pytest pytest-asyncio httpx sphinx sphinx-autodoc-typehints ruff
 
       - name: Wait for PostgreSQL
         run: |

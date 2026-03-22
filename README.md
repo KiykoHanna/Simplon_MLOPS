@@ -29,7 +29,7 @@ cd Simplon_MLOPS
 
 2. Créer le fichier .env à la racine :
 
-```env
+```
 POSTGRES_USER=user
 POSTGRES_PASSWORD=password
 POSTGRES_DB=mydb
@@ -89,7 +89,7 @@ Hanna Kiyko — Developper en IA
 
 ## 5. Structure du projet 
 
-```plaintext
+```
 .
 ├── .github/
 │   ├── workflows/
