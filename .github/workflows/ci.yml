@@ -54,7 +54,7 @@ jobs:
         run: uv run ruff check .
 
       - name: Build docs
-        run: sphinx-build -b html docs/source docs/build
+        run: uv run sphinx-build -b html docs/source docs/build
 
   deploy-docs:
     needs: test
