@@ -25,7 +25,9 @@ extensions = [
     "sphinx.ext.napoleon",
     "myst_parser",
     "sphinx_autodoc_typehints",
+    "sphinx.ext.autosummary",
 ]
+autosummary_generate = True
 
 templates_path = ["_templates"]
 exclude_patterns = []

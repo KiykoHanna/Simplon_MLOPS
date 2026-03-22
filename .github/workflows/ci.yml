@@ -47,7 +47,7 @@ jobs:
         run: |
           pip install uv
           uv sync
-          pip install pytest pytest-asyncio httpx sphinx sphinx-autodoc-typehints ruff
+          pip install pytest pytest-asyncio httpx sphinx sphinx-autodoc-typehints ruff myst-parser
 
       - name: Wait for PostgreSQL
         run: |
