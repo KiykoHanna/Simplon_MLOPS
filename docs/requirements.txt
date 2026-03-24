@@ -3,6 +3,7 @@ sphinx
 sphinx-autodoc-typehints
 myst-parser
 sphinx_rtd_theme
+linkify-it-py
 
 # Чтобы autodoc мог импортировать модули проекта
 pandas
