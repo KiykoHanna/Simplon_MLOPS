@@ -1,7 +1,7 @@
 # Simplon_MLOps
 
 ![CI Status](https://github.com/KiykoHanna/Simplon_MLOPS/actions/workflows/ci.yml/badge.svg)
-[![Coverage](https://img.shields.io/badge/coverage-76%25-brightgreen)](https://github.com/KiykoHanna/Simplon_MLOPS)
+[![Coverage](https://img.shields.io/badge/coverage-62%25-brightgreen)](https://github.com/KiykoHanna/Simplon_MLOPS)
 [![Lint](https://img.shields.io/badge/lint-passing-brightgreen)](https://github.com/KiykoHanna/Simplon_MLOPS)
 ---
 
