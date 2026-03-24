@@ -1,5 +1,11 @@
-sphinx==7.2.6
-myst-parser==2.0.0
-sphinx-autodoc-typehints==1.25.2
-furo==2024.1.29
-linkify-it-py
+# Sphinx и парсеры
+sphinx
+sphinx-autodoc-typehints
+myst-parser
+sphinx_rtd_theme
+
+# Чтобы autodoc мог импортировать модули проекта
+pandas
+fastapi
+sqlalchemy
+python-dotenv
