@@ -12,7 +12,6 @@ wheels/
 *.pyc
 *.pyo
 *.pyd
-.env
 mlruns/
 build/
 .pytest_cache/
